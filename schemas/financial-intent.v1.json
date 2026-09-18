@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentropolis.dev/fiscalith/financial-intent.v1.json",
+  "title": "FISCALITH FinancialIntent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "intent_id",
+    "kind",
+    "actor_ref",
+    "payload",
+    "mandate_ref"
+  ],
+  "properties": {
+    "intent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "enum": [
+        "PAY",
+        "SEND",
+        "BRIDGE",
+        "SWAP",
+        "UNIFIED_BALANCE",
+        "ONRAMP",
+        "EARN",
+        "FX",
+        "JOB",
+        "ESCROW",
+        "INVOICE",
+        "REFUND",
+        "RECONCILE",
+        "SETTLE"
+      ]
+    },
+    "actor_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "counterparty_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mandate_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_envelope_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "required_proofs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
